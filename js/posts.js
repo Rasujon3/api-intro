@@ -18,3 +18,19 @@ function displayPost(posts) {
 }
 
 loadPosts();
+
+function addAPost() {
+  fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    body: JSON.stringify({
+      title: "My New Post",
+      body: "THis is my posts",
+      userId: 1,
+    }),
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+}
